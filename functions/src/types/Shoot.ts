@@ -3,10 +3,10 @@ export type Shoot = {
   startAt: number;
 
   message: string | null;
-  delayMessage: number;
+  delayMessage: number | string;
 
   audio: string | null;
-  delayAudio: number;
+  delayAudio: number | string;
 
   image: {
     caption: string;

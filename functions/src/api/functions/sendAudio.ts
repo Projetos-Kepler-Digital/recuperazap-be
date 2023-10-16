@@ -1,15 +1,15 @@
-import axios from "axios";
+import axios from 'axios';
 
-import { options } from ".";
+import { options } from '.';
 
 export const sendAudio = async (
   key: string,
   phone: string,
   audio: string,
-  delayRecording?: number
+  delayRecording?: number | string
 ) => {
   const config = {
-    method: "post",
+    method: 'post',
     url: `${options.baseUrl}/message/audiourl?key=${key}`,
     headers: options.headers,
     data: {
@@ -24,7 +24,7 @@ export const sendAudio = async (
   } = await axios.request(config);
 
   if (error) {
-    console.log("Erro ao enviar áudio para lead >", phone);
+    console.log('Erro ao enviar áudio para lead >', phone);
   }
 
   return { error };

@@ -1,15 +1,15 @@
-import axios from "axios";
+import axios from 'axios';
 
-import { options } from ".";
+import { options } from '.';
 
 export const sendText = async (
   key: string,
   phone: string,
   message: string,
-  delayTyping?: number
+  delayTyping?: number | string
 ) => {
   const config = {
-    method: "post",
+    method: 'post',
     url: `${options.baseUrl}/message/text?key=${key}`,
     headers: options.headers,
     data: {
@@ -24,7 +24,7 @@ export const sendText = async (
   } = await axios.request(config);
 
   if (error) {
-    console.log("Erro ao enviar mensagem para lead >", phone);
+    console.log('Erro ao enviar mensagem para lead >', phone);
   }
 
   return { error };
